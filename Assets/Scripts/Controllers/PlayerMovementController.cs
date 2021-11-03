@@ -11,6 +11,9 @@ namespace Controllers
 
         private float _horizontalInput, _verticalInput;
         private Vector2 _lookAtTarget;
+
+        public Vector2 LookAtTarget => _lookAtTarget;
+
         private Rigidbody2D _rigidbody;
 
         private void Awake()
