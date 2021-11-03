@@ -4,7 +4,7 @@ using Debug = System.Diagnostics.Debug;
 
 namespace Controllers
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerMovementController : MonoBehaviour
     {
         [SerializeField] private float playerVelocity, playerRotationSpeed;
         [SerializeField] private bool shouldUseRotationSpeed;
