@@ -220,7 +220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerVelocity: 4
-  playerRotationSpeed: 270
+  playerRotationSpeed: 700
+  shouldUseRotationSpeed: 0
 --- !u!50 &504940895
 Rigidbody2D:
   serializedVersion: 4

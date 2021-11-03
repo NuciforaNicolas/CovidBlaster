@@ -7,6 +7,7 @@ namespace Controllers
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float playerVelocity, playerRotationSpeed;
+        [SerializeField] private bool shouldUseRotationSpeed;
 
         private float _horizontalInput, _verticalInput;
         private Vector2 _lookAtTarget;
@@ -40,13 +41,16 @@ namespace Controllers
             // Turn
             float targetAngle = CalculateViewAtAngle();
             // UnityEngine.Debug.Log(targetAngle);
-             if (targetAngle >= 0)
-             {
-                 targetAngle = Mathf.Min(targetAngle, playerRotationSpeed * Time.fixedDeltaTime);
-             } else if (targetAngle < 0)
-             {
-                 targetAngle = Mathf.Max(targetAngle, -playerRotationSpeed * Time.fixedDeltaTime);
-             }
+            if (shouldUseRotationSpeed)
+            {
+                if (targetAngle >= 0)
+                {
+                    targetAngle = Mathf.Min(targetAngle, playerRotationSpeed * Time.fixedDeltaTime);
+                } else if (targetAngle < 0)
+                {
+                    targetAngle = Mathf.Max(targetAngle, -playerRotationSpeed * Time.fixedDeltaTime);
+                }
+            }
             _rigidbody.MoveRotation(_rigidbody.rotation + targetAngle);
         }
 
