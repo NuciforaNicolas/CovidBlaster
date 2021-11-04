@@ -7,6 +7,13 @@ namespace Controllers
     {
         [SerializeField] private GameObject projectilePrefab;
 
+        private Transform _worldTransform;
+
+        private void Awake()
+        {
+            _worldTransform = GameObject.Find("GameWorld").transform;
+        }
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -19,7 +26,7 @@ namespace Controllers
         {
             Transform playerTransform;
             Instantiate(projectilePrefab, (playerTransform = transform).Find("ProjectileSpawnPoint").position, playerTransform.rotation,
-                playerTransform);
+                _worldTransform);
         }
     }
 }

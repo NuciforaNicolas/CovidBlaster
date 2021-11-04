@@ -1,4 +1,5 @@
 using System;
+using UnityEditorInternal;
 using UnityEngine;
 
 namespace Controllers
@@ -12,6 +13,14 @@ namespace Controllers
         private void Start()
         {
             GetComponent<Rigidbody2D>().velocity = transform.right * speed;
+        }
+
+        private void Update()
+        {
+            if (Mathf.Abs(transform.position.x) > 100 || Mathf.Abs(transform.position.y) > 100)
+            {
+                _setToDestroy = true;
+            }
         }
 
         private void LateUpdate()
