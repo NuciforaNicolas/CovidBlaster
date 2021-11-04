@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1220144939579022445}
   - component: {fileID: 274190718796232855}
   m_Layer: 0
-  m_Name: FastProjectile
+  m_Name: HeavyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8184dae59024951a0231ce929b3ce72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  speed: 50
+  damage: 5
+  speed: 40
 --- !u!212 &4744034883628705635
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SortingLayerID: -634731425
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 36b7bd587adf46242a880b24388a86d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9f2b7e25f76caa4bbc8831f80906206, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
