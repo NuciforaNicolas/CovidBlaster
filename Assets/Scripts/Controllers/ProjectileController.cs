@@ -11,7 +11,7 @@ namespace Controllers
 
         private void Start()
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.right * speed;
+            GetComponent<Rigidbody2D>().velocity = transform.right * speed;
         }
 
         private void LateUpdate()

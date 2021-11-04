@@ -7,6 +7,14 @@ namespace Controllers
     {
         [SerializeField] private GameObject projectilePrefab;
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                FireProjectile();
+            }
+        }
+
         public void FireProjectile()
         {
             Transform playerTransform;
