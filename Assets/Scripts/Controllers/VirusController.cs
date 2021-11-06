@@ -42,6 +42,11 @@ namespace Controllers
             }
         }
 
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            GetNewMovementTarget();
+        }
+
         private void GetNewMovementTarget()
         {
             Vector2 movementOffset = Random.insideUnitCircle.normalized *

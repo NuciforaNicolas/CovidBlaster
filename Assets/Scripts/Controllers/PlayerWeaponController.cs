@@ -9,17 +9,23 @@ namespace Controllers
         [SerializeField] private GameObject fastProjectilePrefab;
 
         private Transform _worldTransform;
+        private float _timeOfLastShot;
 
         private void Awake()
         {
             _worldTransform = GameObject.Find("GameWorld").transform;
+            _timeOfLastShot = Time.time;
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0))
             {
-                FireProjectile();
+                if (_timeOfLastShot + (1 / rateOfFire) < Time.time)
+                {
+                    FireProjectile();
+                    _timeOfLastShot = Time.time;
+                }
             }
         }
 
