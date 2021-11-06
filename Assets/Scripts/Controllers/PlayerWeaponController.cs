@@ -5,7 +5,8 @@ namespace Controllers
 {
     public class PlayerWeaponController : MonoBehaviour
     {
-        [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private float rateOfFire;
+        [SerializeField] private GameObject fastProjectilePrefab;
 
         private Transform _worldTransform;
 
@@ -24,9 +25,14 @@ namespace Controllers
 
         public void FireProjectile()
         {
-            Transform playerTransform;
-            Instantiate(projectilePrefab, (playerTransform = transform).Find("ProjectileSpawnPoint").position, playerTransform.rotation,
-                _worldTransform);
+            Transform fastProjectileSpawnParentTransform = transform.Find("ProjectileSpawnPoints/FastProjectile");
+            for (int spawnIter = 0; spawnIter < fastProjectileSpawnParentTransform.childCount; spawnIter++)
+            {
+                Transform spawnParentTransform = fastProjectileSpawnParentTransform.GetChild(spawnIter);
+                Instantiate(fastProjectilePrefab, spawnParentTransform.position, spawnParentTransform.rotation);
+            }
+            // Instantiate(fastProjectilePrefab, fastProjectileSpawnParentTransform.Find("ProjectileSpawnPoint").position, fastProjectileSpawnParentTransform.rotation,
+            //     _worldTransform);
         }
     }
 }
