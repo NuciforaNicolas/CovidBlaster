@@ -1,5 +1,3 @@
-using System;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Controllers
@@ -33,11 +31,15 @@ namespace Controllers
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            HealthController healthController = other.gameObject.GetComponent<HealthController>();
-
-            if (healthController != null)
+            if (!other.collider.tag.Equals("Player"))
             {
-                healthController.DealDamage(damage);
+                HealthController healthController = other.gameObject.GetComponent<HealthController>();
+
+                if (healthController != null)
+                {
+                    healthController.DealDamage(damage);
+                }
+
                 _setToDestroy = true;
             }
         }

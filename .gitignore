@@ -7,6 +7,8 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+/[Rr]elease/
+/[Rr]eleases/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
@@ -60,3 +62,7 @@ crashlytics-build.properties
 
 # Jetbrains Rider project files
 /.idea/
+
+# Fmod log file
+/fmod_editor.log
+/Assets/Plugins/FMOD/Cache/
