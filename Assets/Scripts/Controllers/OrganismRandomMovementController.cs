@@ -2,7 +2,7 @@
 
 namespace Controllers
 {
-    public class VirusController : MonoBehaviour
+    public class OrganismRandomMovementController : MonoBehaviour
     {
         [SerializeField] private float movementSpeed, movementDelay;
         [SerializeField] private Vector2 movementDistanceRange;
@@ -43,6 +43,14 @@ namespace Controllers
         private void OnCollisionEnter2D(Collision2D other)
         {
             GetNewMovementTarget();
+        }
+
+        public void TeleportOrganism(Vector3 targetPosition)
+        {
+            _hasStopped = true;
+            _timeSinceStopped = Time.time;
+            transform.position = targetPosition;
+            _movementTarget = _rigidbody.position;
         }
 
         private void GetNewMovementTarget()
