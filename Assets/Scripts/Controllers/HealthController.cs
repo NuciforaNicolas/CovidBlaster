@@ -15,7 +15,7 @@ namespace Controllers
 
         private void Update()
         {
-            if (_currentHealthPoints <= 0)
+            if (_currentHealthPoints < 0)
             {
                 _currentHealthPoints = maxHealthPoints;
                 gameObject.SetActive(false);
@@ -24,7 +24,7 @@ namespace Controllers
 
         public void DealDamage(float damage)
         {
-            _currentHealthPoints -= damage;
+            _currentHealthPoints -= maxHealthPoints;
         }
     }
 }
