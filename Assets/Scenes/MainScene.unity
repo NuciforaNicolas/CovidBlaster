@@ -371,7 +371,7 @@ MonoBehaviour:
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
-  m_TargetMovementOnly: 1
+  m_TargetMovementOnly: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_CameraDistance: 10
@@ -495,6 +495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodGuysNum: 100
   badGuysNum: 100
+  goodGuysBurst: 200
+  badGuysBurst: 200
   goodGuy: {fileID: 7765174383710668596, guid: e58a4c6fa08db5e4e866b3206a0def6f, type: 3}
   badGuy: {fileID: 1880448620943921841, guid: afe0bca76db0bd640a715ca5986c1dad, type: 3}
   goodGuysPool:
@@ -507,10 +509,9 @@ MonoBehaviour:
     poolList: []
     prefab: {fileID: 0}
     listSize: 0
+  borderX: 100
+  borderY: 100
   timeToSpawn: 0
-  timeToSpawnMin: 1
-  timeToSpawnMax: 1.5
-  player: {fileID: 504940892}
 --- !u!1 &1176877108
 GameObject:
   m_ObjectHideFlags: 0
