@@ -11,7 +11,7 @@ namespace Controllers
 
         private void Awake()
         {
-            _worldTransform = GameObject.Find("GameWorld").transform;
+            _worldTransform = GameObject.FindGameObjectWithTag("GameWorld").transform;
         }
 
         private void Update()
