@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5724206016981519254}
   - component: {fileID: 867671359520063844}
+  - component: {fileID: -4170243283885642520}
   - component: {fileID: 5724206016981519259}
   - component: {fileID: 5724206016981519256}
   - component: {fileID: 5724206016981519257}
@@ -49,6 +50,19 @@ MonoBehaviour:
   movementSpeed: 1
   movementDelay: 1
   movementDistanceRange: {x: 0.5, y: 1.5}
+--- !u!114 &-4170243283885642520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5724206016981519255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7e18ddc7624a629c21adf08a4feb60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 10
 --- !u!212 &5724206016981519259
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,7 +129,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.13
+  m_Radius: 0.41
 --- !u!50 &5724206016981519257
 Rigidbody2D:
   serializedVersion: 4
@@ -135,5 +149,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0

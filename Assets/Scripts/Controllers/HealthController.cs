@@ -17,7 +17,8 @@ namespace Controllers
         {
             if (_currentHealthPoints < 0)
             {
-                // The thing dies.
+                _currentHealthPoints = maxHealthPoints;
+                gameObject.SetActive(false);
             }
         }
 

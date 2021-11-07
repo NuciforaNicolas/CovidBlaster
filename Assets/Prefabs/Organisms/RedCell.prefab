@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4980455700204380479}
   - component: {fileID: -4338242870643268290}
+  - component: {fileID: -774373049343965263}
   - component: {fileID: 3383600637203772439}
   - component: {fileID: 9137206002415372670}
   - component: {fileID: 1975076488969214986}
@@ -49,6 +50,19 @@ MonoBehaviour:
   movementSpeed: 0.5
   movementDelay: 2
   movementDistanceRange: {x: 0.5, y: 1}
+--- !u!114 &-774373049343965263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765174383710668596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7e18ddc7624a629c21adf08a4feb60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoints: 15
 --- !u!212 &3383600637203772439
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -135,5 +149,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
