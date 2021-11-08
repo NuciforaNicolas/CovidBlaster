@@ -4,7 +4,7 @@ namespace Controllers
 {
     public class ProjectileController : MonoBehaviour
     {
-        [SerializeField] private float damage, speed;
+        [SerializeField] private float damage, speed, explosionRadius, explosionDamage;
 
         private bool _setToDestroy;
 
