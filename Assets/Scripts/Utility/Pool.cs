@@ -6,10 +6,11 @@ namespace Utility
     [System.Serializable]
     public class Pool
     {
-        public string poolName;
-        public List<GameObject> poolList;
-        public GameObject prefab;
-        public int listSize;
+        public string mName;
+        public List<GameObject> mList;
+        public GameObject mPrefab;
+        public int mSize;
+        public int mLastIndex;
     }
 }
 
