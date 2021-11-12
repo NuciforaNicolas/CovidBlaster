@@ -534,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0050262c2cc78d94dbd536436ba85f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTentatives: 5
 --- !u!1 &694102938
 GameObject:
   m_ObjectHideFlags: 0
@@ -697,15 +698,17 @@ MonoBehaviour:
   goodGuy: {fileID: 7765174383710668596, guid: e58a4c6fa08db5e4e866b3206a0def6f, type: 3}
   badGuy: {fileID: 5724206016981519255, guid: 31c16ab66033c0846aba534b09857f65, type: 3}
   goodGuysPool:
-    poolName: 
-    poolList: []
-    prefab: {fileID: 0}
-    listSize: 0
+    mName: 
+    mList: []
+    mPrefab: {fileID: 0}
+    mSize: 0
+    mLastIndex: 0
   badGuysPool:
-    poolName: 
-    poolList: []
-    prefab: {fileID: 0}
-    listSize: 0
+    mName: 
+    mList: []
+    mPrefab: {fileID: 0}
+    mSize: 0
+    mLastIndex: 0
   useBorderTransform: 1
   borderX: 0
   borderY: 0
