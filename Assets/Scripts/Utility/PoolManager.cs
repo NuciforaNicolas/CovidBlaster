@@ -9,45 +9,66 @@ namespace Utility
         // Public members
         public static PoolManager instance;
 
-        // Private members
-        // Cache last pool index where found last game object
-        int lastIndex;
+        [SerializeField] int maxTentatives;
 
         private void Awake()
         {
             instance = this;
-            lastIndex = 0;
         }
 
-        public Pool GeneratePool(string poolName, GameObject prefab, int size)
+        public Pool GenerateObjectPool(string name, GameObject prefab, int size)
         {
             Pool newPool = new Pool();
-            newPool.poolName = poolName;
-            newPool.prefab = prefab;
-            newPool.poolList = new List<GameObject>();
+            newPool.mName = name;
+            newPool.mPrefab = prefab;
+            newPool.mSize = size;
+            newPool.mLastIndex = 0;
+            newPool.mList = new List<GameObject>();
             for(int i = 0; i < size; i++)
             {
-                newPool.poolList.Add(Instantiate<GameObject>(newPool.prefab, Vector3.one, Quaternion.identity));
-                newPool.poolList[i].SetActive(false);
+                GameObject go = Instantiate<GameObject>(prefab, Vector3.zero, Quaternion.identity);
+                go.SetActive(false);
+                newPool.mList.Add(go);
             }
             return newPool;
         }
 
-        public GameObject GetObjectFromPool(Pool pool)
+         public GameObject GetObjectFromPool(Pool pool)
         {
-            for(int i = lastIndex; i < pool.listSize; i++)
+            var tentative = 1;
+            var objectFound = false;
+            var index = 0;
+            while(!objectFound)
             {
-                // Check if index exceed list size. If so, go back to zero
-                if (i + 1 >= pool.listSize)
-                    lastIndex = 0;
-                if (!pool.poolList[i].activeInHierarchy)
-                    return pool.poolList[i];
+                for (index = pool.mLastIndex; index < pool.mList.Count; index++)
+                {
+                    if (!pool.mList[index].activeInHierarchy)
+                    {
+                        pool.mLastIndex = index + 1;
+                        objectFound = true;
+                        break;
+                    }
+                    if(index == (pool.mList.Count - 1))
+                    {
+                        pool.mLastIndex = 0;
+                    }
+                }
+                if(pool.mLastIndex == pool.mList.Count)
+                {
+                    pool.mLastIndex = 0;
+                }
+                if (tentative == maxTentatives)
+                {
+                    GameObject go = Instantiate<GameObject>(pool.mPrefab, Vector3.zero, Quaternion.identity);
+                    go.SetActive(false);
+                    pool.mList.Add(go);
+                    //index++;
+                    break;
+                }
+                
+                tentative++;
             }
-            // If all gameobjects on pool are active, create a new one
-            GameObject newObj = Instantiate<GameObject>(pool.prefab, Vector3.one, Quaternion.identity);
-            newObj.SetActive(false);
-            pool.poolList.Add(newObj);
-            return newObj;
+            return pool.mList[index];
         }
     }
 }

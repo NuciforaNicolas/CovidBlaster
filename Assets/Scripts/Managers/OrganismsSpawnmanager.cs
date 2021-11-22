@@ -68,8 +68,8 @@ namespace Managers
         private void Start()
         {
             _canSpawn = true;
-            goodGuysPool = PoolManager.instance.GeneratePool("GoodGuys", goodGuy, goodGuysNum);
-            badGuysPool = PoolManager.instance.GeneratePool("BadGuys", badGuy, badGuysNum);
+            goodGuysPool = PoolManager.instance.GenerateObjectPool("GoodGuys", goodGuy, goodGuysNum);
+            badGuysPool = PoolManager.instance.GenerateObjectPool("BadGuys", badGuy, badGuysNum);
             InitOrganisms();
         }
 
