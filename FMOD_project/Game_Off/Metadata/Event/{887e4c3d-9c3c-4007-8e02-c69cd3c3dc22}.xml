@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{887e4c3d-9c3c-4007-8e02-c69cd3c3dc22}">
 		<property name="name">
-			<value>bump_into_green</value>
+			<value>bumpIntoGreen</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
