@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{cb556d29-76bc-4886-9eb3-4782235aa848}">
+		<property name="assetPath">
+			<value>Move 1/Move 7.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.84954648526077092</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0cac60a-fcf9-4d83-96f0-b7ca7dd16b98}</destination>
+		</relationship>
+	</object>
+</objects>
