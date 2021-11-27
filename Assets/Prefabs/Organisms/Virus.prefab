@@ -50,6 +50,7 @@ MonoBehaviour:
   movementSpeed: 1
   movementDelay: 1
   movementDistanceRange: {x: 0.5, y: 1.5}
+  unitName: 1
 --- !u!114 &-4170243283885642520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 10
+  unitName: 1
 --- !u!212 &5724206016981519259
 SpriteRenderer:
   m_ObjectHideFlags: 0

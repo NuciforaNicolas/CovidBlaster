@@ -1,22 +1,46 @@
-﻿using UnityEngine;
+﻿using System;
+using Enums.Sound;
+using FMOD.Studio;
+using FMODUnity;
+using UnityEngine;
+using Random = UnityEngine.Random;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Controllers
 {
     public class OrganismRandomMovementController : MonoBehaviour
     {
-        [SerializeField] private float movementSpeed, movementDelay;
-        [SerializeField] private Vector2 movementDistanceRange;
+        [SerializeField]
+        private float movementSpeed, movementDelay;
+
+        [SerializeField]
+        private Vector2 movementDistanceRange;
+
+        [SerializeField]
+        private UnitName unitName;
 
         private Vector2 _movementTarget;
         private Rigidbody2D _rigidbody;
         private float _timeSinceStopped;
         private bool _hasStopped;
+        private EventInstance _movingSound;
 
         private void Awake()
         {
             _movementTarget = transform.position;
             _rigidbody = GetComponent<Rigidbody2D>();
             _timeSinceStopped = Time.time;
+        }
+
+        private void Update()
+        {
+            if (_rigidbody.velocity.magnitude > 0.001f)
+            {
+                if (!_movingSound.isValid())
+                {
+                    _movingSound = RuntimeManager.CreateInstance("event:/Sounds/Movement");
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -42,6 +66,19 @@ namespace Controllers
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            PlayerMovementController playerMovementController =
+                other.collider.gameObject.GetComponent<PlayerMovementController>();
+            if (playerMovementController != null)
+            {
+                if (UnitName.Virus.Equals(unitName))
+                {
+                    RuntimeManager.PlayOneShot("event:/Sounds/BumpIntoGreen", transform.position);
+                }
+                else if (UnitName.RedCell.Equals(unitName))
+                {
+                    RuntimeManager.PlayOneShot("event:/Sounds/BumpIntoRed", transform.position);
+                }
+            }
             GetNewMovementTarget();
         }
 
