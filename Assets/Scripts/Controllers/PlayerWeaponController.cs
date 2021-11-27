@@ -57,6 +57,7 @@ namespace Controllers
                 Transform spawnParentTransform = fastProjectileSpawnParentTransform.GetChild(spawnIter);
                 Instantiate(bigProjectilePrefab, spawnParentTransform.position, spawnParentTransform.rotation);
             }
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Sounds/SecondaryShot", transform.position);
         }
     }
 }
