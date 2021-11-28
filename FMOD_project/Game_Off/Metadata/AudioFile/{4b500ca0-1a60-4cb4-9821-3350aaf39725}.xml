@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="AudioFile" id="{4b500ca0-1a60-4cb4-9821-3350aaf39725}">
 		<property name="assetPath">
-			<value>bump green.wav</value>
+			<value>Sounds/bump green.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

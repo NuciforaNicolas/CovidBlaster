@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{8f7ab13f-d898-422f-8c4e-bdec67389a6f}">
+		<property name="assetPath">
+			<value>01. Welcome To Covid (Covid Blaster Menu Song)(wav).wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>42.365464852607708</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0cac60a-fcf9-4d83-96f0-b7ca7dd16b98}</destination>
+		</relationship>
+	</object>
+</objects>
