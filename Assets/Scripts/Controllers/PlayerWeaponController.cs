@@ -38,6 +38,11 @@ namespace Controllers
             }
         }
 
+        public float GetBigProjectileReloadPercentage()
+        {
+            return Mathf.Clamp01((Time.time - _timeOfLastShotBig) / bigProjectileReloadTime);
+        }
+
         public void FireFastProjectile()
         {
             Transform fastProjectileSpawnParentTransform = transform.Find("ProjectileSpawnPoints/FastProjectile");
