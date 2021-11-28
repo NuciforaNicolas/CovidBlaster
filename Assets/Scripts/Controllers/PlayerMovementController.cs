@@ -1,12 +1,18 @@
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 using Debug = System.Diagnostics.Debug;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 namespace Controllers
 {
     public class PlayerMovementController : MonoBehaviour
     {
-        [SerializeField] private float playerVelocity, playerRotationSpeed;
-        [SerializeField] private bool shouldUseRotationSpeed;
+        [SerializeField]
+        private float playerVelocity, playerRotationSpeed;
+
+        [SerializeField]
+        private bool shouldUseRotationSpeed;
 
         private float _horizontalInput, _verticalInput;
         private Vector2 _lookAtTarget;
@@ -14,12 +20,14 @@ namespace Controllers
         public Vector2 LookAtTarget => _lookAtTarget;
 
         private Rigidbody2D _rigidbody;
+        private EventInstance _movingSound;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _horizontalInput = 0;
             _verticalInput = 0;
+            _movingSound = RuntimeManager.CreateInstance("event:/Sounds/Movement");
         }
 
         private void Start()
@@ -31,8 +39,21 @@ namespace Controllers
         {
             _horizontalInput = Input.GetAxis("Horizontal");
             _verticalInput = Input.GetAxis("Vertical");
-            
+
             _lookAtTarget = GetLookAtPosition();
+
+            _movingSound.getPlaybackState(out var playbackState);
+            if (_rigidbody.velocity.magnitude > 0.001f)
+            {
+                if (!PLAYBACK_STATE.PLAYING.Equals(playbackState))
+                {
+                    _movingSound.start();
+                }
+            }
+            else if (PLAYBACK_STATE.PLAYING.Equals(playbackState))
+            {
+                _movingSound.stop(STOP_MODE.ALLOWFADEOUT);
+            }
         }
 
         private void FixedUpdate()
@@ -48,11 +69,13 @@ namespace Controllers
                 if (targetAngle >= 0)
                 {
                     targetAngle = Mathf.Min(targetAngle, playerRotationSpeed * Time.fixedDeltaTime);
-                } else if (targetAngle < 0)
+                }
+                else if (targetAngle < 0)
                 {
                     targetAngle = Mathf.Max(targetAngle, -playerRotationSpeed * Time.fixedDeltaTime);
                 }
             }
+
             _rigidbody.MoveRotation(_rigidbody.rotation + targetAngle);
         }
 
@@ -60,7 +83,7 @@ namespace Controllers
         {
             Vector2 position = transform.position;
             float angleFromRight = CalculateAngleFromRight(position, _lookAtTarget);
-            float angleToForward = CalculateAngleFromRight(position, position + (Vector2)transform.right);
+            float angleToForward = CalculateAngleFromRight(position, position + (Vector2) transform.right);
 
             float targetAngle = angleToForward - angleFromRight;
             if (targetAngle > 180)

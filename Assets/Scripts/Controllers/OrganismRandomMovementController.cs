@@ -23,24 +23,12 @@ namespace Controllers
         private Rigidbody2D _rigidbody;
         private float _timeSinceStopped;
         private bool _hasStopped;
-        private EventInstance _movingSound;
 
         private void Awake()
         {
             _movementTarget = transform.position;
             _rigidbody = GetComponent<Rigidbody2D>();
             _timeSinceStopped = Time.time;
-        }
-
-        private void Update()
-        {
-            if (_rigidbody.velocity.magnitude > 0.001f)
-            {
-                if (!_movingSound.isValid())
-                {
-                    _movingSound = RuntimeManager.CreateInstance("event:/Sounds/Movement");
-                }
-            }
         }
 
         private void FixedUpdate()
