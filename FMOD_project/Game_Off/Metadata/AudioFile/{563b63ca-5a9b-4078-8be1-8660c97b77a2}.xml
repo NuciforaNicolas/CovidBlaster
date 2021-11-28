@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{563b63ca-5a9b-4078-8be1-8660c97b77a2}">
+		<property name="assetPath">
+			<value>02. Attack Of Covid (Covid Blaster Game Song) (wav).wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>193.71428571428572</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{a0cac60a-fcf9-4d83-96f0-b7ca7dd16b98}</destination>
+		</relationship>
+	</object>
+</objects>
