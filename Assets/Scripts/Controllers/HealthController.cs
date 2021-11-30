@@ -1,5 +1,6 @@
 using Enums.Sound;
 using FMODUnity;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 namespace Controllers
@@ -13,10 +14,12 @@ namespace Controllers
         private UnitName unitName;
 
         private float _currentHealthPoints;
+        private GameUiController _gameUiController;
 
         private void Awake()
         {
             _currentHealthPoints = maxHealthPoints;
+            _gameUiController = GameObject.Find("Canvas").GetComponent<GameUiController>();
         }
 
         private void Update()
@@ -27,10 +30,12 @@ namespace Controllers
                 if (UnitName.Virus.Equals(unitName))
                 {
                     RuntimeManager.PlayOneShot("event:/Sounds/KillGreen", transform.position);
+                    _gameUiController.AddKill();
                 }
                 else if (UnitName.RedCell.Equals(unitName))
                 {
                     RuntimeManager.PlayOneShot("event:/Sounds/KillRedAndLoseLife", transform.position);
+                    _gameUiController.SubtractPatientHealth();
                 }
 
                 gameObject.SetActive(false);
