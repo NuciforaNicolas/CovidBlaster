@@ -8,7 +8,7 @@ namespace Controllers
         private RectTransform _rectTransform;
         private PlayerWeaponController _weaponController;
 
-        private float _reloadBarWidth;
+        private float _reloadBarWidth, _previousReloadPercentage;
 
         private void Awake()
         {
@@ -19,8 +19,18 @@ namespace Controllers
 
         private void Update()
         {
+            float currentReloadPercentage = _weaponController.GetBigProjectileReloadPercentage();
             _rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
-                _weaponController.GetBigProjectileReloadPercentage() * _reloadBarWidth);
+                currentReloadPercentage * _reloadBarWidth);
+            if (currentReloadPercentage >= 0.99999f && _previousReloadPercentage < 0.99999f)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Sounds/2ndWpReady");
+            } else if (currentReloadPercentage <= 0.1f && _previousReloadPercentage >= 0.99999f)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Sounds/2ndWpReload");
+            }
+
+            _previousReloadPercentage = currentReloadPercentage;
         }
     }
 }
