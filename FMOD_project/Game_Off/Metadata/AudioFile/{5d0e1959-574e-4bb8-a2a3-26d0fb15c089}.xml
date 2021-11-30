@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{bde99142-fce8-4e26-8558-ac2fcdef29ed}">
+	<object class="AudioFile" id="{5d0e1959-574e-4bb8-a2a3-26d0fb15c089}">
 		<property name="assetPath">
-			<value>Sounds/death green 2.wav</value>
+			<value>Sounds/kill gren.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>1.5565532879818593</value>
+			<value>0.98950113378684812</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{a0cac60a-fcf9-4d83-96f0-b7ca7dd16b98}</destination>

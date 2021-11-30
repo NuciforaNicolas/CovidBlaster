@@ -60,7 +60,7 @@
 	<object class="MarkerTrack" id="{7ade0e62-aa08-4ec2-9eb3-0f705c00ad78}" />
 	<object class="GroupTrack" id="{9dfae15f-930b-4c4a-b5ed-05ba67078ded}">
 		<relationship name="modules">
-			<destination>{a5b38276-27d5-4730-b1f2-84b725eb3f94}</destination>
+			<destination>{61f97696-7837-45a7-bae9-b423fe44312c}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{bd18c919-4861-4c35-943b-55d9dcb5c6e5}</destination>
@@ -68,7 +68,7 @@
 	</object>
 	<object class="Timeline" id="{296cf0b7-13d7-4404-b26d-adde12016084}">
 		<relationship name="modules">
-			<destination>{a5b38276-27d5-4730-b1f2-84b725eb3f94}</destination>
+			<destination>{61f97696-7837-45a7-bae9-b423fe44312c}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{64a768ac-048e-4668-82d0-96984f04f0a8}">
@@ -88,21 +88,23 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e4833cdd-ad3d-47dc-8e72-70ffa4954ee7}" />
-	<object class="MultiSound" id="{a5b38276-27d5-4730-b1f2-84b725eb3f94}">
+	<object class="SingleSound" id="{61f97696-7837-45a7-bae9-b423fe44312c}">
 		<property name="length">
-			<value>1.0885729924153569</value>
+			<value>0.80000000000000004</value>
+		</property>
+		<property name="timelockedOffset">
+			<value>0.087362898200821951</value>
 		</property>
 		<relationship name="fadeOutCurve">
-			<destination>{ac1fd131-ef2d-4cec-b7e8-3f510ad09aab}</destination>
+			<destination>{d1029013-4920-459e-87f2-ceebf7150675}</destination>
 		</relationship>
-		<relationship name="sounds">
-			<destination>{2d4c855b-f2d1-450f-b39c-53974b0ebf34}</destination>
-			<destination>{6cca5651-c327-4214-acea-7bdfca070968}</destination>
+		<relationship name="audioFile">
+			<destination>{5d0e1959-574e-4bb8-a2a3-26d0fb15c089}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{bd18c919-4861-4c35-943b-55d9dcb5c6e5}">
 		<property name="volume">
-			<value>1</value>
+			<value>-0.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -124,22 +126,12 @@
 	</object>
 	<object class="MixerBusPanner" id="{07af0d86-e142-4e6b-b5ae-6a587678f7cb}" />
 	<object class="MixerBusFader" id="{1b30ae9c-1fd4-4173-8ac8-89f991cb4369}" />
-	<object class="FadeCurve" id="{ac1fd131-ef2d-4cec-b7e8-3f510ad09aab}">
+	<object class="FadeCurve" id="{d1029013-4920-459e-87f2-ceebf7150675}">
 		<relationship name="startPoint">
-			<destination>{34e9d908-4754-4da9-a22e-32c96f872fe9}</destination>
+			<destination>{6ea13e8d-afb3-45fe-9bdb-2465b36ff877}</destination>
 		</relationship>
 		<relationship name="endPoint">
-			<destination>{e16e2565-afae-41c0-a889-17f125bdb29d}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{2d4c855b-f2d1-450f-b39c-53974b0ebf34}">
-		<relationship name="audioFile">
-			<destination>{bde99142-fce8-4e26-8558-ac2fcdef29ed}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{6cca5651-c327-4214-acea-7bdfca070968}">
-		<relationship name="audioFile">
-			<destination>{3bf10886-3cde-4b3d-a728-cc4f38beab28}</destination>
+			<destination>{55afe647-0c92-4b46-b362-a004280b9a74}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{edadf9a5-6f33-4d59-8ef2-0e40e0c33e17}">
@@ -149,9 +141,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{dc36eb60-6a6f-4538-850c-629f1c04ef02}" />
 	<object class="MixerBusFader" id="{3f69efd7-7ab5-4a25-84c6-0c67a8c32bb7}" />
-	<object class="AutomationPoint" id="{34e9d908-4754-4da9-a22e-32c96f872fe9}">
+	<object class="AutomationPoint" id="{6ea13e8d-afb3-45fe-9bdb-2465b36ff877}">
 		<property name="position">
-			<value>1</value>
+			<value>0.68000000000000005</value>
 		</property>
 		<property name="value">
 			<value>1</value>
@@ -160,9 +152,9 @@
 			<value>0.25471893</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{e16e2565-afae-41c0-a889-17f125bdb29d}">
+	<object class="AutomationPoint" id="{55afe647-0c92-4b46-b362-a004280b9a74}">
 		<property name="position">
-			<value>1.0885729924153569</value>
+			<value>0.80000000000000004</value>
 		</property>
 		<property name="value">
 			<value>0</value>
